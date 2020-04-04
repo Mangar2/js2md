@@ -10,7 +10,7 @@
  * JavaScript files and generates a markdown based on a user-defined template. It scans the
  * provided directory and generates one markdown file for all .js files in this directory
  * @example
- * // jsmddoc directory outputfile --json jsonFile --template templateFile
+ * ## jsmddoc directory outputfile --json jsonFile --template templateFile
  * jsmddoc . README.md --json writeJSONFormatHere --template useMyOwnTemplate
  */
 'use strict'

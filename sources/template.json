@@ -38,7 +38,7 @@
             {
                 "iterate on": "class",
                 "for each": [
-                    { "text": "- [Class: @name](#Class:-@name)\n" },
+                    { "text": "- [Class @name](#Class-@name)\n" },
                     { "if exists": "param", "text": "  - [Parameters](#@name-Parameters)\n" },
                     { "if exists": "member", "text": "  - [Members](#@name-Members)\n"},
                     { "if exists": "method", "text": "  - [Methods](#@name-Methods)\n"},
@@ -103,7 +103,7 @@
             }
         ],
         "class headline": [
-            { "text": "\n## Class: @name\n\n" },
+            { "text": "\n## Class @name\n\n" },
             { "text": "`new @name(" },
             { "$ref": "parameter list" },
             { "text": ")`\n" },
@@ -138,7 +138,11 @@
                     { "if isfirst": true, "if exists": "default", "text": " Default |" },
                     { "if isfirst": true, "if exists": "description", "text": " Description |" },
                     { "if isfirst": true, "text": "\n" },
-                    { "if isfirst": true, "text": "| ---- | ---- | ---- | ---- | ----------- |\n" },
+                    { "if isfirst": true, "text": "| ---------- | ------------ |" },
+                    { "if isfirst": true, "if exists": "attributes", "text": " ------------ |" },
+                    { "if isfirst": true, "if exists": "default", "text": " ------------ |" },
+                    { "if isfirst": true, "if exists": "description", "text": " ----------------- |" },
+                    { "if isfirst": true, "text": "\n" },
                     { "$ref": "parameter line" }
                 ]
             },
@@ -217,7 +221,9 @@
                 { "if isfirst": true, "text": "| Name | Type |" },
                 { "if isfirst": true, "if exists": "attributes", "text": " attributes |" },
                 { "if isfirst": true, "text": " description |\n" },
-                { "if isfirst": true, "text": "| ---- | ---- | ---- | ---------- |\n" },
+                { "if isfirst": true, "text": "| ------------ | ------------ | ------------ |" },
+                { "if isfirst": true, "if exists": "attributes", "text": " ---------- |" },
+                { "if isfirst": true, "text": "\n" },
                 { "text": "| `@name` | `@type` |" },
                 { "if exists": "attributes", "text": " @attributes |" },
                 { "text": " @description |\n" }

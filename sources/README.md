@@ -61,7 +61,7 @@ Writes the JSON document output to a file
 #### writeJSON Parameters
 
 | Name | Type | Description |
-| ---- | ---- | ---- | ---- | ----------- |
+| ---- | ---- | ----------- |
 | `parameter` | `Object` | command line parameter | |
 | `documentationObject` | `Object` | documentation data | |
 

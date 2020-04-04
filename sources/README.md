@@ -14,22 +14,22 @@ jsmddoc . README.md --json writeJSONFormatHere --template useMyOwnTemplate
 ## Contents
 
 - [Meta](#Meta)
-- [Global Functions](#Global%20functions)
+- [Global Functions](#Global-functions)
   - [main](#main)
   - [writeJSON](#writeJSON)
   - [writeMarkdown](#writeMarkdown)
-- [Class: Generate](#Class-Generate)
-  - [Parameters](#Generate%20Parameters)
-  - [Methods](#Generate%20Methods)
+- [Class Generate](#Class-Generate)
+  - [Parameters](#Generate-Parameters)
+  - [Methods](#Generate-Methods)
     - [generate](#generate)
-- [Class: Parse](#Class:%20Parse)
-  - [Parameters](#Parse%20Parameters)
-  - [Methods](#Parse%20Methods)
+- [Class Parse](#Class-Parse)
+  - [Parameters](#Parse-Parameters)
+  - [Methods](#Parse-Methods)
     - [getJSON](#getJSON)
-- [Class: Tokenizer](#Class:%20Tokenizer)
-  - [Parameters](#Tokenizer%20Parameters)
-  - [Members](#Tokenizer%20Members)
-  - [Methods](#Tokenizer%20Methods)
+- [Class Tokenizer](#Class-Tokenizer)
+  - [Parameters](#Tokenizer-Parameters)
+  - [Members](#Tokenizer-Members)
+  - [Methods](#Tokenizer-Methods)
     - [nextToken](#nextToken)
     - [printMessage](#printMessage)
     - [scipToEndOfLine](#scipToEndOfLine)
@@ -123,7 +123,7 @@ Generates output by appliying json formatted file description to a list of templ
 | ---------- | ------------ | ------------ | ------------ | ----------------- |
 | `includePrivate` | `boolean` | optional | false | set to true to generate private elements | |
 
-## Class: Parse
+## Class Parse
 
 `new Parse(tokenizer)`
 
@@ -155,7 +155,7 @@ Creates a JSON structure of the file comments
 | ---- | ----------- |
 | `Object` | file comments |
 
-## Class: Tokenizer
+## Class Tokenizer
 
 `new Tokenizer(fileName, content)`
 

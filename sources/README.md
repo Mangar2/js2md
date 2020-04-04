@@ -18,7 +18,7 @@ jsmddoc . README.md --json writeJSONFormatHere --template useMyOwnTemplate
   - [main](#main)
   - [writeJSON](#writeJSON)
   - [writeMarkdown](#writeMarkdown)
-- [Class: Generate](#Class: Generate)
+- [Class: Generate](#Class:_Generate)
   - [Parameters](#Generate-Parameters)
   - [Methods](#Generate-Methods)
     - [generate](#generate)

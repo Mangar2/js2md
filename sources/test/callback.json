@@ -1,0 +1,49 @@
+[
+    {
+        "description": "type",
+        "tests": [
+            {
+                "description": "single callback",
+                "input": "/** @callback myCallback \n @returns {Object} myObject */",
+                "expected": {
+                    "callback": [
+                        {
+                            "callback": "myCallback",
+                            "returns": [
+                                {
+                                    "type": "Object",
+                                    "description": "myObject"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "Local callback",
+                "input": "/** class */ class MyClass { } /** @callback myCallback \n @returns {Object} myObject */ \n ",
+                "expected": {
+                    "class": [
+                        {
+                            "description": "class",
+                            "class": true,
+                            "name": "MyClass",
+                            "callback": [
+                                {
+                                    "callback": "myCallback",
+                                    "returns": [
+                                        {
+                                            "type": "Object",
+                                            "description": "myObject"
+                                        }
+                                    ],
+                                    "memberOf": "MyClass"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]

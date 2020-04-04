@@ -1,0 +1,227 @@
+[
+    {
+        "description": "class",
+        "tests": [
+            {
+                "description": "description without tag",
+                "input": "/** class description */ class myclass { }",
+                "expected": {
+                    "class": [
+                        {
+                            "description": "class description",
+                            "class": true,
+                            "name": "myclass"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "description with tag",
+                "input": "/** @description description is default */ class myclass { }",
+                "expected": {
+                    "class": [
+                        {
+                            "description": "description is default",
+                            "class": true,
+                            "name":"myclass"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "description": "method",
+        "tests": [
+            {
+                "description": "simple method",
+                "input": "/** class description */ class myclass { /** test */ test() {} }",
+                "expected": {
+                    "class": [
+                        {
+                            "description": "class description",
+                            "class": true,
+                            "name":"myclass",
+                            "method": [
+                                {
+                                    "description": "test",
+                                    "method": true,
+                                    "name": "test",
+                                    "memberOf": "myclass"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "private method",
+                "input": "/** class description */ class myclass { /** test @private */ test() {} }",
+                "expected": {
+                    "class": [
+                        {
+                            "description": "class description",
+                            "class": true,
+                            "name":"myclass",
+                            "method": [
+                                {
+                                    "private": true,
+                                    "description": "test",
+                                    "method": true,
+                                    "name": "test",
+                                    "memberOf": "myclass"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "getter",
+                "input": "/** class description */ class myclass { /** my member @type {integer} */ get test () {} }",
+                "expected": {
+                    "class": [
+                        {
+                            "description": "class description",
+                            "class": true,
+                            "name": "myclass",
+                            "member": [
+                                {
+                                    "description": "my member",
+                                    "type": "integer",
+                                    "member": true,
+                                    "name": "test",
+                                    "memberOf": "myclass"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "async",
+                "input": "/** class description */ class myclass { /** my member @type {integer} */ async test () {} }",
+                "expected": {
+                    "class": [
+                        {
+                            "description": "class description",
+                            "class": true,
+                            "name": "myclass",
+                            "method": [
+                                {
+                                    "description": "my member",
+                                    "type": "integer",
+                                    "method": true,
+                                    "name": "test",
+                                    "async": true,
+                                    "attributes": "async",
+                                    "memberOf": "myclass"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "throws",
+                "input": "/** class description */ class myclass { /** my member @type {integer} \n * @throws {Error} an error */ test () {} }",
+                "expected": {
+                    "class": [
+                        {
+                            "description": "class description",
+                            "class": true,
+                            "name": "myclass",
+                            "method": [
+                                {
+                                    "description": "my member",
+                                    "type": "integer",
+                                    "throws": [
+                                        {
+                                            "type": "Error",
+                                            "description": "an error"
+                                        }
+                                    ],
+                                    "method": true,
+                                    "name": "test",
+                                    "memberOf": "myclass"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "two methods",
+                "input": "/** class description */ class myclass { /** two @param {integer} a */ two () {} \n /** one @param {integer} a */ one () {} }",
+                "expected": {
+                    "class": [
+                        {
+                            "description": "class description",
+                            "class": true,
+                            "name": "myclass",
+                            "method": [
+                                {
+                                    "description": "one",
+                                    "param": [
+                                        {
+                                            "name": "a",
+                                            "type": "integer"
+                                        }
+                                    ],
+                                    "method": true,
+                                    "name": "one",
+                                    "memberOf": "myclass"
+                                },
+                                {
+                                    "description": "two",
+                                    "param": [
+                                        {
+                                            "name": "a",
+                                            "type": "integer"
+                                        }
+                                    ],
+                                    "method": true,
+                                    "name": "two",
+                                    "memberOf": "myclass"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "description": "parameter",
+        "tests": [
+            {
+                "description": "parameter with two types",
+                "input": "/** class description */ class myclass { /** test @param {(boolean|string)} myparam aparam */ test() {} }",
+                "expected": {
+                    "class": [
+                        {
+                            "description": "class description",
+                            "class": true,
+                            "name": "myclass",
+                            "method": [
+                                {
+                                    "description": "test",
+                                    "param": [
+                                        {
+                                            "name": "myparam",
+                                            "type": "boolean, string",
+                                            "description": "aparam"
+                                        }
+                                    ],
+                                    "method": true,
+                                    "name": "test",
+                                    "memberOf": "myclass"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]

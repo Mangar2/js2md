@@ -1,0 +1,55 @@
+[
+    {
+        "description": "meta",
+        "tests": [
+            {
+                "description": "any tag",
+                "input": "/** @anytag anyinfo */",
+                "expected": {
+                    "file": [
+                        {
+                            "anytag": "anyinfo",
+                            "filename": "test"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "licence",
+                "input": "/** @license licensetest */",
+                "expected": {
+                    "file": [
+                        {
+                            "license": "licensetest",
+                            "filename": "test"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "author",
+                "input": "/** @author Max Mustermann */",
+                "expected": {
+                    "file": [
+                        {
+                            "author": "Max Mustermann",
+                            "filename": "test"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "copyright",
+                "input": "/** @copyright Jane Doe */",
+                "expected": {
+                    "file": [
+                        {
+                            "copyright": "Jane Doe",
+                            "filename": "test"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]

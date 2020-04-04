@@ -1,0 +1,100 @@
+[
+    {
+        "description": "basics",
+        "tests": [
+            {
+                "description": "author",
+                "input": "/** @author Max Mustermann */",
+                "expected": {
+                    "file": [
+                        {
+                            "author": "Max Mustermann",
+                            "filename": "test"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "different line ende information",
+                "input": "/** @author Max Mustermann2 \r\n\n */ ",
+                "expected": {
+                    "file": [
+                        {
+                            "author": "Max Mustermann2",
+                            "filename": "test"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "additional information",
+                "input": "/** @author Max Mustermann3 */ \n",
+                "expected": {
+                    "file": [
+                        {
+                            "author": "Max Mustermann3",
+                            "filename": "test"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "two tags",
+                "input": "/** @author Max Mustermann @anytag anyinfo */",
+                "expected": {
+                    "file": [
+                        {
+                            "author": "Max Mustermann",
+                            "anytag": "anyinfo",
+                            "filename": "test"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "documentation does not terminate",
+                "input": "/** @author Max Mustermann ",
+                "expected": {
+                    "file": [
+                        {
+                            "author": "Max Mustermann",
+                            "filename": "test"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "description": "description",
+        "tests": [
+            {
+                "description": "description tag",
+                "input": "/** @description hello world \n *   - hello world */",
+                "expected": {
+                    "file": [
+                        {
+                            "description": "hello world\n\n- hello world",
+                            "filename": "test"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "private tag",
+                "input": "/** @private @description hello world \n *   - hello world */",
+                "expected": {
+                    "file": [
+                        {
+                            "private": true,
+                            "description": "hello world\n\n- hello world",
+                            "filename": "test"
+                        }
+                    ]
+                }
+            }
+
+        ]
+    }
+
+]

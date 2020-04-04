@@ -1,0 +1,174 @@
+[
+    {
+        "description": "parameter",
+        "tests": [
+            {
+                "description": "only name",
+                "input": "/** @param myparam */",
+                "expected": {
+                    "file": [
+                        {
+                            "param": [
+                                {
+                                    "name": "myparam"
+                                }
+                            ],
+                            "filename": "test"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "use arg instead of param",
+                "input": "/** @arg myparam */",
+                "expected": {
+                    "file": [
+                        {
+                            "param": [
+                                {
+                                    "name": "myparam"
+                                }
+                            ],
+                            "filename": "test"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "have type",
+                "input": "/** @param {string} myparam */",
+                "expected": {
+                    "file": [
+                        {
+                            "param": [
+                                {
+                                    "name": "myparam",
+                                    "type": "string"
+                                }
+                            ],
+                            "filename": "test"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "two types",
+                "input": "/** @param {string|number} myparam */",
+                "expected": {
+                    "file": [
+                        {
+                            "param": [
+                                {
+                                    "name": "myparam",
+                                    "type": "string, number"
+                                }
+                            ],
+                            "filename": "test"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "is optional",
+                "input": "/** @param [myparam] */",
+                "expected": {
+                    "file": [
+                        {
+                            "param": [
+                                {
+                                    "name": "myparam",
+                                    "attributes": "optional"
+                                }
+                            ],
+                            "filename": "test"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "has default value",
+                "input": "/** @param [myparam = 6*7] */",
+                "expected": {
+                    "file": [
+                        {
+                            "param": [
+                                {
+                                    "name": "myparam",
+                                    "attributes": "optional",
+                                    "default": "6*7"
+                                }
+                            ],
+                            "filename": "test"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "has description",
+                "input": "/** @param myparam this is my description */",
+                "expected": {
+                    "file": [
+                        {
+                            "param": [
+                                {
+                                    "name": "myparam",
+                                    "description": "this is my description"
+                                }
+                            ],
+                            "filename": "test"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "two parameters",
+                "input": "/** @param myparam this is my description @param param2 */",
+                "expected": {
+                    "file": [
+                        {
+                            "param": [
+                                {
+                                    "name": "myparam",
+                                    "description": "this is my description"
+                                },
+                                {
+                                    "name": "param2",
+                                    "description": ""
+                                }
+                            ],
+                            "filename": "test"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "subparameter",
+                "input": "/** @param myparam this is my description @param {number} myparam.subparam my subparam @param param2 */",
+                "expected": {
+                    "file": [
+                        {
+                            "param": [
+                                {
+                                    "name": "myparam",
+                                    "description": "this is my description",
+                                    "param": [
+                                        {
+                                            "name": "subparam",
+                                            "type": "number",
+                                            "description": "my subparam"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "param2",
+                                    "description": ""
+                                }
+                            ],
+                            "filename": "test"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,61 @@
+[
+    {
+        "description": "type",
+        "tests": [
+            {
+                "description": "single type",
+                "input": "/** @typedef {Object} LogPattern */",
+                "expected": {
+                    "typedef": [
+                        {
+                            "type": "Object",
+                            "typedef": "LogPattern"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "one property",
+                "input": "/** @typedef {Object} LogPattern @property {string} property1 the property1 */",
+                "expected": {
+                    "typedef": [
+                        {
+                            "type": "Object",
+                            "typedef": "LogPattern",
+                            "property": [
+                                {
+                                    "name": "property1",
+                                    "type": "string",
+                                    "description": "the property1"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "two typedef",
+                "input": "/** @typedef {Object} LogPattern @property {string} property1 the property1\n */\n/** @typedef {string} def2 */",
+                "expected": {
+                    "typedef": [
+                        {
+                            "type": "Object",
+                            "typedef": "LogPattern",
+                            "property": [
+                                {
+                                    "name": "property1",
+                                    "type": "string",
+                                    "description": "the property1"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "string",
+                            "typedef": "def2"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]

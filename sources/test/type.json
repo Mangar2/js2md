@@ -1,0 +1,72 @@
+[
+    {
+        "description": "type",
+        "tests": [
+            {
+                "description": "single type",
+                "input": "/** @type {boolean} */",
+                "expected": { "file":  [{ "type": "boolean", "filename": "test" }]}
+            },
+            {
+                "description": "single type, unneeded description",
+                "input": "/** @type {boolean} hello world */",
+                "expected": { "file":  [{ "type": "boolean", "filename": "test" }]}
+            },
+            {
+                "description": "type list",
+                "input": "/** @type {boolean|string} */",
+                "expected": { "file":  [{ "type": "boolean, string", "filename": "test" }]}
+            },
+            {
+                "description": "type list in brackets",
+                "input": "/** @type {(boolean|string)} */",
+                "expected": { "file":  [{ "type": "boolean, string", "filename": "test" }]}
+            },
+            {
+                "description": "closure array",
+                "input": "/** @type {Array.<Object>} */",
+                "expected": { "file":  [{ "type": "Array.<Object>", "filename": "test" }]}
+            },
+            {
+                "description": "trailing array",
+                "input": "/** @type {Object[]} \n * \n */",
+                "expected": { "file":  [{ "type": "Array.<Object>", "filename": "test" }]}
+            },
+            {
+                "description": "Object with string and number",
+                "input": "/** @type {Object.<string, number>} */",
+                "expected": { "file":  [{ "type": "Object.<string, number>", "filename": "test" }]}
+            },
+            {
+                "description": "Object and array",
+                "input": "/** @type {{a: string, b:number}[]} */",
+                "expected": { "file":  [{ "type": "Array.<Object.<a:string, b:number>>", "filename": "test" }]}
+            },
+            {
+                "description": "object",
+                "input": "/** @type {{a:string, b:integer}} */",
+                "expected": { "file":  [{ "type": "Object.<a:string, b:integer>", "filename": "test" }]}
+            },
+            {
+                "description": "nullable parameter",
+                "input": "/** @type {?number} */",
+                "expected": { "file":  [{ "type": "number", "attributes": "nullable", "filename": "test" }]}
+            },
+            {
+                "description": "non nullable parameter",
+                "input": "/** @type {!number} */",
+                "expected": { "file":  [{ "type": "number", "attributes": "non-null", "filename": "test" }]}
+            },
+            {
+                "description": "repeatable parameter",
+                "input": "/** @type {...number} */",
+                "expected": { "file":  [{ "type": "number", "attributes": "repeatable", "filename": "test" }]}
+            },
+            {
+                "description": "fault in optional parameter",
+                "input": "/** @type {[number]} */",
+                "expected": { "file":  [{ "type": "number", "filename": "test" }]}
+            }
+        ]
+    }
+]

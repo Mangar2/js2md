@@ -1,0 +1,145 @@
+[
+    {
+        "description": "function",
+        "tests": [
+            {
+                "description": "description without tag",
+                "input": "/** function description */ function myfunction () { }",
+                "expected": {
+                    "function": [
+                        {
+                            "description": "function description",
+                            "function": true,
+                            "name": "myfunction"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "description with tag",
+                "input": "/** @description function description */ function myfunction () { }",
+                "expected": {
+                    "function": [
+                        {
+                            "description": "function description",
+                            "function": true,
+                            "name": "myfunction"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "description with tag",
+                "input": "/** @description function description */ function myfunction () { }",
+                "expected": {
+                    "function": [
+                        {
+                            "description": "function description",
+                            "function": true,
+                            "name": "myfunction"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "description": "arrow functions",
+        "tests": [
+            {
+                "description": "description with tag",
+                "input": "/** @description function description */ const myfunction = () => { }",
+                "expected": {
+                    "function": [
+                        {
+                            "description": "function description",
+                            "readonly": true,
+                            "function": true,
+                            "name": "myfunction",
+                            "attributes": "readonly"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "function in object",
+                "input": "{ /** @description function description */ myfunction: () => { } }",
+                "expected": {
+                    "function": [
+                        {
+                            "description": "function description",
+                            "function": true,
+                            "name": "myfunction"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "two function",
+                "input": "/** @description function description */ const myfunction = () => { } \n /** function 2 */ const function2 = () => { }",
+                "expected": {
+                    "function": [
+                        {
+                            "description": "function 2",
+                            "readonly": true,
+                            "function": true,
+                            "name": "function2",
+                            "attributes": "readonly"
+                        },
+                        {
+                            "description": "function description",
+                            "readonly": true,
+                            "function": true,
+                            "name": "myfunction",
+                            "attributes": "readonly"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "description": "class function",
+        "tests": [
+            {
+                "description": "class tag",
+                "input": "/** @class @description function description */ function myfunction () { }",
+                "expected": {
+                    "class": [
+                        {
+                            "description": "function description",
+                            "class": true,
+                            "name": "myfunction"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "description": "prototype",
+        "tests": [
+            {
+                "description": "prototype function",
+                "input": "/** @class @description function description */ function TheObject () { } \n /** prototype @name hello */ TheObject.prototype.hello = function() { }",
+                "expected": {
+                    "class": [
+                        {
+                            "class": true,
+                            "description": "function description",
+                            "name": "TheObject",
+                            "method": [
+                                {
+                                    "description": "prototype",
+                                    "method": true,
+                                    "name": "hello",
+                                    "memberOf": "TheObject"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]

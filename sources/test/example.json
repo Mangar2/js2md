@@ -1,0 +1,21 @@
+[
+    {
+        "description": "example",
+        "tests": [
+            {
+                "description": "simple example",
+                "input": "/** @description abc \n @example def */",
+                "expected": {
+                    "file": [{ "description": "abc", "example": "def", "filename": "test" }]
+                }
+            },
+            {
+                "description": "one property",
+                "input": "/** @description abc \n @example def\n * @description hello world\n */",
+                "expected": {
+                    "file": [{ "description": "hello world", "example": "def", "filename": "test" }]
+                }
+            }
+        ]
+    }
+]

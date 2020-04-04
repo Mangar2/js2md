@@ -1,0 +1,107 @@
+[
+    {
+        "description": "member",
+        "tests": [
+            {
+                "description": "get member",
+                "input": "/** @type {boolean} */ get mymember () { return this._mymember }",
+                "expected": {
+                    "member": [
+                        {
+                            "type": "boolean",
+                            "member": true,
+                            "name": "mymember"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "set member",
+                "input": "/** @type {boolean} */ set mymember () { return this._mymember }",
+                "expected": {
+                    "member": [
+                        {
+                            "type": "boolean",
+                            "member": true,
+                            "name": "mymember"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "get and set member",
+                "input": "/** @type {boolean} */ get mymember () { return this._mymember }; set mymember (mymember) { this._mymember = mymember }",
+                "expected": {
+                    "member": [
+                        {
+                            "type": "boolean",
+                            "member": true,
+                            "name": "mymember"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "static member",
+                "input": "/** @type {boolean} */ static get mymember () { return this._mymember } ",
+                "expected": {
+                    "member": [
+                        {
+                            "type": "boolean",
+                            "static": true,
+                            "member": true,
+                            "name": "mymember",
+                            "attributes": "static"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "readonly member",
+                "input": "/** @readonly\n@type {boolean} */ static get mymember () { return this._mymember } ",
+                "expected": {
+                    "member": [
+                        {
+                            "type": "boolean",
+                            "readonly": true,
+                            "static": true,
+                            "member": true,
+                            "name": "mymember",
+                            "attributes": "readonly static"
+                        }
+                    ]
+                }
+            },
+            {
+                "description": "static and non-static member",
+                "input": "/** myclass */ class myclass { /** @type {boolean} */ static get staticmember () { return this._staticmember } /** @type {boolean} */ get mymember () { return this._mymember } }",
+                "expected": {
+                    "class": [
+                        {
+                            "description": "myclass",
+                            "class": true,
+                            "name": "myclass",
+                            "member": [
+                                {
+                                    "type": "boolean",
+                                    "member": true,
+                                    "name": "mymember",
+                                    "attributes": "",
+                                    "memberOf": "myclass"
+                                },
+                                {
+                                    "type": "boolean",
+                                    "member": true,
+                                    "static": true,
+                                    "name": "staticmember",
+                                    "attributes": "static",
+                                    "memberOf": "myclass"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]

@@ -7,29 +7,29 @@ This module provides a parser and a generator to parse JSDOC tags in JavaScript 
 Example
 
 ```shell
-// jsmddoc directory outputfile --json jsonFile --template templateFile
+## jsmddoc directory outputfile --json jsonFile --template templateFile
 jsmddoc . README.md --json writeJSONFormatHere --template useMyOwnTemplate
 ```
 
 ## Contents
 
 - [Meta](#Meta)
-- [Global Functions](#Global-functions)
+- [Global Functions](#Global%20functions)
   - [main](#main)
   - [writeJSON](#writeJSON)
   - [writeMarkdown](#writeMarkdown)
-- [Class: Generate](#Class:_Generate)
-  - [Parameters](#Generate-Parameters)
-  - [Methods](#Generate-Methods)
+- [Class: Generate](#Class:%20Generate)
+  - [Parameters](#Generate%20Parameters)
+  - [Methods](#Generate%20Methods)
     - [generate](#generate)
-- [Class: Parse](#Class:-Parse)
-  - [Parameters](#Parse-Parameters)
-  - [Methods](#Parse-Methods)
+- [Class: Parse](#Class:%20Parse)
+  - [Parameters](#Parse%20Parameters)
+  - [Methods](#Parse%20Methods)
     - [getJSON](#getJSON)
-- [Class: Tokenizer](#Class:-Tokenizer)
-  - [Parameters](#Tokenizer-Parameters)
-  - [Members](#Tokenizer-Members)
-  - [Methods](#Tokenizer-Methods)
+- [Class: Tokenizer](#Class:%20Tokenizer)
+  - [Parameters](#Tokenizer%20Parameters)
+  - [Members](#Tokenizer%20Members)
+  - [Methods](#Tokenizer%20Methods)
     - [nextToken](#nextToken)
     - [printMessage](#printMessage)
     - [scipToEndOfLine](#scipToEndOfLine)
@@ -38,7 +38,7 @@ jsmddoc . README.md --json writeJSONFormatHere --template useMyOwnTemplate
 
 | | |
 | --- | --- |
-| **File** | jsmddoc.js |
+| **File** | js2md.js |
 | **Abstract** | This module provides a parser and a generator to parse JSDOC tags in JavaScript files and generates a markdown based on a user-defined template . It scans the provided directory and generates one markdown file for all . js files in this directory |
 | **Author** | Volker Böhm |
 | **Copyright** | Copyright ( c ) 2020 Volker Böhm |
@@ -61,14 +61,14 @@ Writes the JSON document output to a file
 #### writeJSON Parameters
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
+| ---------- | ------------ | ----------------- |
 | `parameter` | `Object` | command line parameter | |
 | `documentationObject` | `Object` | documentation data | |
 
 #### parameter properties
 
 | Name | Type | Description |
-| ---- | ---- | ---- | ---- | ----------- |
+| ---------- | ------------ | ----------------- |
 | `json` | `string` | filename to print the json output | |
 
 ### writeMarkdown
@@ -80,14 +80,14 @@ Writes the JSON document output to a file
 #### writeMarkdown Parameters
 
 | Name | Type | Description |
-| ---- | ---- | ---- | ---- | ----------- |
+| ---------- | ------------ | ----------------- |
 | `parameter` | `Object` | command line parameter | |
 | `documentationObject` | `Object` | documentation data | |
 
 #### parameter properties
 
 | Name | Type | Description |
-| ---- | ---- | ---- | ---- | ----------- |
+| ---------- | ------------ | ----------------- |
 | `json` | `string` | filename to print the json output | |
 
 ## Class: Generate
@@ -99,7 +99,7 @@ Creates a generator to generate descriptions from a parsed file content in json 
 ### Generate Parameters
 
 | Name | Type | Description |
-| ---- | ---- | ---- | ---- | ----------- |
+| ---------- | ------------ | ----------------- |
 | `template` | `Object` | generator template | |
 
 ### Generate Methods
@@ -113,14 +113,14 @@ Generates output by appliying json formatted file description to a list of templ
 ##### generate Parameters
 
 | Name | Type | Description |
-| ---- | ---- | ---- | ---- | ----------- |
+| ---------- | ------------ | ----------------- |
 | `jsonData` | `Object` | content of the file as JSON | |
 | `options` | `Object` | generation options | |
 
 #### options properties
 
 | Name | Type | Attribute | Default | Description |
-| ---- | ---- | ---- | ---- | ----------- |
+| ---------- | ------------ | ------------ | ------------ | ----------------- |
 | `includePrivate` | `boolean` | optional | false | set to true to generate private elements | |
 
 ## Class: Parse
@@ -132,7 +132,7 @@ Creates a java script document parser extracting documentation from a JavaScript
 ### Parse Parameters
 
 | Name | Type | Description |
-| ---- | ---- | ---- | ---- | ----------- |
+| ---------- | ------------ | ----------------- |
 | `tokenizer` | `Tokenizer` | tokenizer class to read file and provide its content in tokens | |
 
 ### Parse Methods
@@ -146,7 +146,7 @@ Creates a JSON structure of the file comments
 ##### getJSON Parameters
 
 | Name | Type | Description |
-| ---- | ---- | ---- | ---- | ----------- |
+| ---------- | ------------ | ----------------- |
 | `parseResult` | `Object` | result of the former files | |
 
 ##### getJSON returns
@@ -164,14 +164,14 @@ Creates a tokenizer class providing the content of a file token by token
 ### Tokenizer Parameters
 
 | Name | Type | Description |
-| ---- | ---- | ---- | ---- | ----------- |
+| ---------- | ------------ | ----------------- |
 | `fileName` | `string` | name of the file | |
 | `content` | `string` | file content as string | |
 
 ### Tokenizer Members
 
 | Name | Type | description |
-| ---- | ---- | ---- | ---------- |
+| ------------ | ------------ | ------------ |
 | `filename` | `string` | Name of the file currently processed |
 | `lineNo` | `integer` | Current line number of the input file |
 | `pos` | `integer` | Current postion in the input text |
@@ -200,7 +200,7 @@ Prints a note , warning or error message
 ##### printMessage Parameters
 
 | Name | Type | Description |
-| ---- | ---- | ---- | ---- | ----------- |
+| ---------- | ------------ | ----------------- |
 | `type` | `string` | type of the message ( note , warning , error ) | |
 | `text` | `string` | text of the message | |
 

@@ -1,6 +1,10 @@
 # change log for js2md
 
-## 0.2.1 2020-04-05 update
+## 0.2.2 2020-04-06 fix
+
+- Escaped Array.\<\> and Object.\<\>
+
+## 0.2.1 2020-04-05 fix
 
 - Fixed error
 

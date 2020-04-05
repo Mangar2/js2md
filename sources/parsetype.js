@@ -81,7 +81,7 @@ function _parseObject (tokenizer) {
         nextDocToken(tokenizer)
     }
     if (requireToken(tokenizer, 'missing } in type object definition', '}')) {
-        result = 'Object.<' + result + '>'
+        result = 'Object.\\<' + result + '\\>'
     }
     return result
 }
@@ -98,7 +98,7 @@ function _parseArray (tokenizer, type) {
     let result = ''
     tokenizer.nextToken()
     if (requireToken(tokenizer, 'missing ] in type array definition', ']')) {
-        result = 'Array.<' + type + '>'
+        result = 'Array.\\<' + type + '\\>'
     }
     return result
 }

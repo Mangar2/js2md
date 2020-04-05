@@ -19,6 +19,7 @@
 
 const Tokenizer = require('./tokenizer')
 const Parse = require('./parse')
+const ParseResult = require('./parseresult')
 const Generate = require('./generate')
 const types = require('@mangar2/types')
 
@@ -78,7 +79,7 @@ function readDir (directory) {
  */
 function parseInput (directory) {
     const files = readDir(directory)
-    let result = {}
+    let result = new ParseResult()
 
     for (const file of files) {
         if (file.endsWith('.js')) {

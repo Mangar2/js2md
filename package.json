@@ -5,7 +5,7 @@
     "main": "js2md.js",
     "scripts": {
         "test": "node sources/test/test.js",
-        "doku": "js2md ./sources ./sources/README.md",
+        "doku": "node ./sources/js2md ./sources ./sources/README.md",
         "lint": "eslint ./sources/*.js",
         "prepublish": "npm run lint && npm test && npm run doku"
     },

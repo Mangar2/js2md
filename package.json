@@ -1,6 +1,6 @@
 {
     "name": "@mangar2/js2md",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "creates a markdown file from a jsdoc commented JavaScript file",
     "main": "js2md.js",
     "scripts": {

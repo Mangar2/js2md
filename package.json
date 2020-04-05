@@ -4,7 +4,10 @@
     "description": "creates a markdown file from a jsdoc commented JavaScript file",
     "main": "js2md.js",
     "scripts": {
-        "test": "node sources/test/test.js"
+        "test": "node sources/test/test.js",
+        "doku": "js2md ./sources ./sources/README.md",
+        "lint": "eslint ./sources/*.js",
+        "prepublish": "npm run lint && npm test && npm run doku"
     },
     "keywords": [
         "markdown",

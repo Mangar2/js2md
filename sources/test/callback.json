@@ -20,6 +20,24 @@
                 }
             },
             {
+                "description": "callback with description",
+                "input": "/** my callback \n @callback myCallback \n @returns {Object} myObject */",
+                "expected": {
+                    "callback": [
+                        {
+                            "callback": "myCallback",
+                            "description": "my callback",
+                            "returns": [
+                                {
+                                    "type": "Object",
+                                    "description": "myObject"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
                 "description": "Local callback",
                 "input": "/** class */ class MyClass { } /** @callback myCallback \n @returns {Object} myObject */ \n ",
                 "expected": {

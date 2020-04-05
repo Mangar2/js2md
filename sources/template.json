@@ -76,6 +76,7 @@
             "for each": [
                 { "if isfirst": true, "text": "\n## Type definitions\n" },
                 { "text": "\n### @typedef {@type}\n\n" },
+                { "if exists": "description", "text": "@description\n" },
                 { "$ref": "typedef table" }
             ]
         },
@@ -84,6 +85,7 @@
             "for each": [
                 { "if isfirst": true, "text": "\n## Callback definitions\n" },
                 { "text": "\n### @callback\n\n" },
+                { "if exists": "description", "text": "@description\n" },
                 { "if exists": "param", "text": "\n#### @callback Parameters\n\n", "$ref": "parameter table" },
                 { "if exists": "throws", "text": "\n#### @callback throws\n\n", "$ref": "throws table" },
                 { "if exists": "returns", "text": "\n#### @callback returns\n\n", "$ref": "return table" }

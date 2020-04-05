@@ -150,10 +150,12 @@ function _parseTypeTag (tokenizer, curInfo = {}) {
  * @description
  * Parses a typedef entry
  * @param {Tokenizer} tokenizer provides token
+ * @param {Object} [curInfo={}] attributes found so far
  * @returns {Object} with property types
  */
-function _parseTypedef (tokenizer) {
-    const result = parseTypedef(tokenizer)
+function _parseTypedef (tokenizer, curInfo = {}) {
+    const typedef = parseTypedef(tokenizer)
+    const result = { ...curInfo, ...typedef }
     if (!isTextEndTag(tokenizer.token)) {
         reportError(tokenizer, 'The @typedef tag does not permit a description; the description will be ignored.')
     }

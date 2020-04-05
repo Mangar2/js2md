@@ -15,6 +15,19 @@
                 }
             },
             {
+                "description": "single type with description",
+                "input": "/** a typedef \n @typedef {Object} LogPattern */",
+                "expected": {
+                    "typedef": [
+                        {
+                            "description": "a typedef",
+                            "type": "Object",
+                            "typedef": "LogPattern"
+                        }
+                    ]
+                }
+            },
+            {
                 "description": "one property",
                 "input": "/** @typedef {Object} LogPattern @property {string} property1 the property1 */",
                 "expected": {

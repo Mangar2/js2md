@@ -24,7 +24,6 @@ testRun.on('break', (test, prepared) => {
     const tokenizer = new Tokenizer('test', test.input)
     const parse = new Parse(tokenizer)
     const result = parse.getJSON()
-    testRun.unitTest.assertDeepEqual(result.class, result.class)
     console.log(JSON.stringify(result, null, 2))
 })
 

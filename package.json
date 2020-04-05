@@ -1,23 +1,23 @@
 {
     "name": "@mangar2/js2md",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "creates a markdown file from a jsdoc commented JavaScript file",
     "main": "js2md.js",
     "scripts": {
-      "test": "node sources/test/test.js"
+        "test": "node sources/test/test.js"
     },
     "keywords": [
-      "markdown",
-      "readme",
-      "jsdoc",
-      "documentation"
+        "markdown",
+        "readme",
+        "jsdoc",
+        "documentation"
     ],
     "author": "Volker Böhm",
     "license": "LGPL-3.0-or-later",
     "homepage": "https://github.com/Mangar2/js2md.git",
     "repository": {
-      "type": "git",
-      "url": "https://github.com/Mangar2/js2md.git"
+        "type": "git",
+        "url": "https://github.com/Mangar2/js2md.git"
     },
     "bin": {
         "js2md": "./sources/js2md.js"
@@ -26,10 +26,9 @@
         "@mangar2/types": "1.1.0"
     },
     "devDependencies": {
-        "eslint": "6.8.0",
-        "js2md": "0.1.0",
+        "@mangar2/testrun": "^1.0.0",
         "c8": "7.1.0",
-        "@mangar2/testrun": "1.0.0"
+        "eslint": "6.8.0",
+        "js2md": "0.1.0"
     }
-  }
-  
+}

@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /**
  * @license
  * This software is licensed under the GNU LESSER GENERAL PUBLIC LICENSE Version 3. It is furnished
@@ -76,7 +78,7 @@ function readDir (directory) {
  */
 function parseInput (directory) {
     const files = readDir(directory)
-    let result
+    let result = {}
 
     for (const file of files) {
         if (file.endsWith('.js')) {
